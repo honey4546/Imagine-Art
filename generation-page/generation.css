@@ -1,0 +1,297 @@
+/* Reset margin and padding for all elements */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Body styling */
+body {
+    background-color: black;
+    color: white;
+    font-family: var(--default-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+/* h1 styling */
+h1 {
+    color: rgb(232, 233, 238);
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 20px ;
+    margin-left: 6rem;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* text-decoration: underline; */
+    /* display: flex; */
+}
+h1 span{
+    color: #2196f3;
+}
+
+/* Container styling */
+.container {
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    height: 600px;
+}
+
+.block{
+    position: relative;
+    margin:10% auto 0;
+    width:50%;
+    height:400px;
+    background-color: white;
+  
+}
+
+/* Image container styling */
+.image-container {
+    position: relative;
+    margin: 30px 80px; 
+   
+    /* background: linear-gradient(0deg,black,rgb(44, 5, 5)); */
+    
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    width: 700px;
+    margin: 60px 0 40px 0px;
+    /* z-index: -1; */
+} 
+
+
+/* Generated image styling */
+.generated-image {
+    /* max-width: 100%;
+    max-height: 100%; */
+    width: 600px;
+    height: 300px;
+    display: block;
+    z-index: 1;
+    border-radius: 10px;
+
+}
+
+.image-container:before,.image-container:after{
+
+    content: '';
+    position: absolute;
+    height: 300px;
+    width:600px;
+    /* background-image:conic-gradient(from var(--angle),transparent 90%,blue); */
+    background: linear-gradient(45deg,rgb(125, 18, 18),rgb(10, 92, 85),rgb(131, 85, 223),rgb(23, 23, 139),rgb(92, 20, 154),rgb(97, 32, 5));
+    /* background-image:conic-gradient(45deg,#e6fb04,#ff6600,#00ff66,#00ffff,#ff00ff,#6e0dd0,#ff3300,#099fff); */
+    z-index: -1;
+    padding: 3px;
+    border-radius: 10px;
+    animation: borderbg 40s linear infinite;
+    background-size: 400%;
+}
+
+
+@keyframes borderbg {
+    0%{
+        background-position: 0 0;
+    }
+    50%{
+        background-position: 400% 0;
+    }
+    100%{
+        background-position: 0 0;
+    }
+}
+
+.image-container:after{
+    filter: blur(80px);
+    /* opacity: 0.1; */
+}
+.loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /* Ensure loader is on top */
+}
+
+
+/* Input container styling */
+.input-container {
+    display: flex;
+    /* width: 60px; */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* padding: 10px 40px; */
+    /* margin: 100px 0 20px 0; */
+    z-index: 1; /* Ensure input container is on top */
+}
+
+#loading-gif {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: block;
+  }
+
+/* Prompt input styling */
+#prompt-input {
+    width: 18rem;
+    height: 2rem;
+    border-radius: 5px;
+    border: 3px solid rgb(206, 244, 244);
+    margin-left: 6rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:15px;
+    font-weight:500;
+    
+}
+
+
+
+
+/* Generate button styling */
+#generate-btn {
+    width: 6rem;
+    height: 2.5rem;
+    border-radius: 8px;
+    border: 2px solid white;
+    background: #0a131a;
+    color: azure;
+    font-weight:500;
+}
+#generate-btn:hover{
+    background: #31393e;
+    box-shadow: 0 0 15px #d9e4ed, 0 0 40px #11202b,0 0 80px #2196f3;
+}
+
+/* Download button styling */
+#download-btn {
+    width: 5rem;
+    height: 2.5rem;
+    border-radius: 8px;
+    background-color: #9f1553;
+    color: azure;
+    font-weight:500;
+}
+#download-btn:hover{
+    background: #9f1553;
+    box-shadow: 0 0 10px #cd4384, 0 0 40px #cd1534,0 0 80px #eb9fb1;
+}
+#previous-btn {
+    width: 6rem;
+    height: 2.5rem;
+    border-radius: 8px;
+    border: 2px solid white;
+    background: #0a131a;
+    color: azure;
+    font-weight:500;
+}
+#previous-btn:hover{
+    background: #31393e;
+    box-shadow: 0 0 15px #d9e4ed, 0 0 40px #11202b,0 0 80px #2196f3;
+}
+/* Bubble styling */
+.box ul li {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    list-style: none;
+    opacity: 0;
+    background: radial-gradient(rgb(235, 236, 238), transparent, transparent);
+    bottom: 0;
+    left: 10vw;
+    animation: animate 15s linear infinite;
+    z-index: -1; /* Ensure bubbles are behind other elements */
+}
+
+/* Bubble positions */
+.box ul li:nth-child(2)
+ { 
+    left: 5vw; animation-delay: 2s; 
+}
+.box ul li:nth-child(3) { 
+    left: 30vw; animation-delay: 4s;
+ }
+.box ul li:nth-child(4) { 
+    left: 50vw; animation-delay: 5s;
+ }
+.box ul li:nth-child(5) {
+     left: 90vw; animation-delay: 7s; 
+    }
+.box ul li:nth-child(6) {
+     left: 97vw; animation-delay: 4s;
+     }
+.box ul li:nth-child(7) { 
+    left: 80vw; animation-delay: 3s; 
+}
+.box ul li:nth-child(8) {
+     left: 40vw; animation-delay: 2s;
+     }
+.box ul li:nth-child(9) { 
+    left: 90vw; animation-delay: 9s;
+ }
+.box ul li:nth-child(10) { 
+    left: 20vw; animation-delay: 10s; 
+}
+.box ul li:nth-child(11) { 
+    left: 40vw; animation-delay: 12s; 
+}
+
+/* Bubble animation */
+@keyframes animate {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+        bottom: 0;
+    }
+    100% {
+        transform: scale(10);
+        opacity: 0;
+        bottom: 100vh;
+    }
+}
+
+.previous-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.previous-images img {
+    width: 100px; /* Fixed size for previous images */
+    height: auto; /* Maintain aspect ratio */
+    margin: 5px; /* Spacing between images */
+}
+
+.blob{
+    .blob1 {
+        position: absolute; /* Use absolute positioning */
+        top: 0; /* Align to the top */
+        right: 0; /* Align to the right */
+        margin: 10px; /* Add some margin for spacing */
+        /* Optional styling */
+        background-color: white; /* Background color */
+        padding: 10px; /* Padding inside the div */
+        border: 1px solid #ccc; /* Border styling */
+        border-radius: 5px; /* Rounded corners */
+    }
+    
+}
